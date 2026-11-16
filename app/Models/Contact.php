@@ -46,9 +46,7 @@ class Contact extends Model
      */
     public function tags(): BelongsToMany
     {
-        return $this->belongsToMany(Tag::class, 'contact_tag')
-            ->using(ContactTag::class)
-            ->withPivot(['id'])
+        return $this->belongsToMany(Tag::class)
             ->withTimeStamps();
     }
 
