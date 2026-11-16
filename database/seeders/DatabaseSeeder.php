@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contact;
+use App\Models\Tag;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,11 +14,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            UserSeeder::class,
+            CategorySeeder::class,
+            ContactSeeder::class,
+            TagSeeder::class,
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $contacts = Contact::all();
+
+        $tagIds = Tag::pluck('id')->toArray();
+
+        $ids = fake()->randomElements(
+            $tagIds,
+            rand(1, 3)
+        );
+
+        foreach ($contacts as $contact) {
+            $contact->tags()->attach($ids);
+        }
     }
 }
