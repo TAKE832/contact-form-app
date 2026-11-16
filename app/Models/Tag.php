@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+class Tag extends Model
+{
+    use HasFactory;
+
+    /**
+     * 複数代入可能な属性
+     * 
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name'
+    ];
+
+    /**
+     * タグが所有する複数のお問い合わせを取得する
+     */
+    public function contacts(): BelongsToMany
+    {
+        return $this->belongsToMany(Contact::class, 'contact_tag')
+            ->using(ContactTag::class)
+            ->withPivot(['id'])
+            ->withTimeStamps();
+    }
+}
