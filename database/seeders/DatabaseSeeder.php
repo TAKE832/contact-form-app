@@ -17,21 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             CategorySeeder::class,
-            ContactSeeder::class,
             TagSeeder::class,
+            ContactSeeder::class,
         ]);
-
-        $contacts = Contact::all();
-
-        $tagIds = Tag::pluck('id')->toArray();
-
-        $ids = fake()->randomElements(
-            $tagIds,
-            rand(1, 3)
-        );
-
-        foreach ($contacts as $contact) {
-            $contact->tags()->attach($ids);
-        }
     }
 }
