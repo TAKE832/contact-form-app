@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexQueryRequest;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Models\Contact;
 
 
@@ -13,6 +14,7 @@ class AdminController extends Controller
     {
         $query = Contact::with(['category', 'tags']);
         $categories = Category::all();
+        $tags = Tag::all();
 
         // キーワードで検索（半角・全角を除外）
         if ($request->filled('keyword')) {
@@ -41,7 +43,7 @@ class AdminController extends Controller
 
         $contacts = $query->latest()->paginate(7);
 
-        return view('admin.index', compact(['contacts', 'categories']));
+        return view('admin.index', compact(['contacts', 'categories', 'tags']));
     }
 
     /**
