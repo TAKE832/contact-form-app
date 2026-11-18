@@ -2,63 +2,48 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TagRequest;
+use App\Models\Tag;
 
 class TagController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * タグを新規登録する
      */
-    public function index()
+    public function store(TagRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        Tag::create($validated);
+
+        return redirect()->route('admin');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * タグ編集ページを取得する
      */
-    public function create()
+    public function edit(Tag $tag)
     {
-        //
+        return view('admin.tags.edit', compact('tag'));
     }
 
     /**
-     * Store a newly created resource in storage.
+     * タグを更新
      */
-    public function store(Request $request)
+    public function update(TagRequest $request, Tag $tag)
     {
-        //
+        $tag->update($request->validated());
+
+        return redirect()->route('admin');
     }
 
     /**
-     * Display the specified resource.
+     * タグを削除
      */
-    public function show(string $id)
+    public function destroy(Tag $tag)
     {
-        //
-    }
+        $tag->delete();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('admin');
     }
 }
