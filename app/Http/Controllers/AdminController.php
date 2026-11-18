@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexQueryRequest;
+use App\Http\Requests\TagRequest;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Contact;
@@ -16,7 +17,6 @@ class AdminController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
 
-        // キーワードで検索（半角・全角を除外）
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
             $query->where(function ($q) use ($keyword) {
