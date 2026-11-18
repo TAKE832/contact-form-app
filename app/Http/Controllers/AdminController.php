@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexQueryRequest;
-use App\Http\Requests\TagRequest;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\Contact;
