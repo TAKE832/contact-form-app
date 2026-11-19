@@ -12,7 +12,7 @@ class TagUpdateTest extends TestCase
 {
     use RefreshDatabase;
     /**
-     * A basic unit test example.
+     * 自身のタグ名を維持したまま更新することができる
      */
     public function test_it_will_not_causea_unique_error_when_tag_name_update(): void
     {
