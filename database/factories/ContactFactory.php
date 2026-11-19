@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Database\Console\Migrations\StatusCommand;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,5 +28,25 @@ class ContactFactory extends Factory
             'building' => fake()->buildingNumber(),
             'detail' => fake()->realText(120),
         ];
+    }
+
+    /**
+     * 性別を男にする
+     */
+    public function manGender(): static
+    {
+        return $this->state(fn(array $attribute) => [
+            'gender' => 1,
+        ]);
+    }
+
+    /**
+     * 性別を女にする
+     */
+    public function womanGender(): static
+    {
+        return $this->state(fn(array $attributes) => [
+            'gender' => 2,
+        ]);
     }
 }
