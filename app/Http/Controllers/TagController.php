@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\TagRequest;
+use App\Http\Requests\StoreTagRequest;
 use App\Models\Tag;
 
 class TagController extends Controller
@@ -10,7 +10,7 @@ class TagController extends Controller
     /**
      * タグを新規登録する
      */
-    public function store(TagRequest $request)
+    public function store(StoreTagRequest $request)
     {
         $validated = $request->validated();
 
@@ -30,7 +30,7 @@ class TagController extends Controller
     /**
      * タグを更新
      */
-    public function update(TagRequest $request, Tag $tag)
+    public function update(StoreTagRequest $request, Tag $tag)
     {
         $tag->update($request->validated());
 
