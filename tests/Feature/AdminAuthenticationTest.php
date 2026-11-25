@@ -32,7 +32,7 @@ class AdminAuthenticationTest extends TestCase
 
         $response = $this->post(route('login'), [
             'email' => 'test@example.com',
-            'password' => 'password123'
+            'password' => 'password123',
         ]);
 
         $response->assertRedirect(route('admin'));

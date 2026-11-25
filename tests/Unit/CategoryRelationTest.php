@@ -10,6 +10,7 @@ use Tests\TestCase;
 class CategoryRelationTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * カテゴリーから複数のお問い合わせを取得できる
      */

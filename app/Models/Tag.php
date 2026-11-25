@@ -12,11 +12,11 @@ class Tag extends Model
 
     /**
      * 複数代入可能な属性
-     * 
+     *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     /**

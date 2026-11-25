@@ -11,6 +11,7 @@ use Tests\TestCase;
 class TagUpdateTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * 自身のタグ名を維持したまま更新することができる
      */

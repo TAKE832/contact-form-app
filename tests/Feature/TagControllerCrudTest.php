@@ -10,6 +10,7 @@ use Tests\TestCase;
 class TagControllerCrudTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * タグを追加できる
      */

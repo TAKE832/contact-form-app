@@ -19,7 +19,7 @@ class ContactValidationTest extends TestCase
      */
     public function test_accept_all_item(): void
     {
-        $request = new StoreContactRequest();
+        $request = new StoreContactRequest;
 
         $category = Category::factory()->create([
             'content' => 'テスト',
@@ -50,13 +50,13 @@ class ContactValidationTest extends TestCase
      */
     public function test_refusal_invalid_tel_number(): void
     {
-        $request = new StoreContactRequest();
+        $request = new StoreContactRequest;
 
         $category = Category::factory()->create();
 
         $contact = Contact::factory()->create([
             'tel' => '090112233',
-            'category_id' => $category->id
+            'category_id' => $category->id,
         ]);
 
         $validator = Validator::make(
@@ -77,7 +77,7 @@ class ContactValidationTest extends TestCase
      */
     public function test_accept_tag(): void
     {
-        $request = new StoreContactRequest();
+        $request = new StoreContactRequest;
 
         $category = Category::factory()->create();
 

@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Console\Migrations\StatusCommand;
+use App\Models\Contact;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Contact>
+ * @extends Factory<Contact>
  */
 class ContactFactory extends Factory
 {
@@ -23,7 +23,7 @@ class ContactFactory extends Factory
             'last_name' => fake()->firstName(),
             'gender' => fake()->numberBetween(1, 3),
             'email' => fake()->unique()->email(),
-            'tel' => '090' . fake()->numerify('########'),
+            'tel' => '090'.fake()->numerify('########'),
             'address' => fake()->address(),
             'building' => fake()->buildingNumber(),
             'detail' => fake()->realText(120),
@@ -35,7 +35,7 @@ class ContactFactory extends Factory
      */
     public function manGender(): static
     {
-        return $this->state(fn(array $attribute) => [
+        return $this->state(fn (array $attribute) => [
             'gender' => 1,
         ]);
     }
@@ -45,7 +45,7 @@ class ContactFactory extends Factory
      */
     public function womanGender(): static
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'gender' => 2,
         ]);
     }

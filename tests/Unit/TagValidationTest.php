@@ -4,20 +4,20 @@ namespace Tests\Unit;
 
 use App\Http\Requests\StoreTagRequest;
 use App\Models\Tag;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
-
 
 class TagValidationTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * タグ作成時に名前が入力されていないとバリデーションエラーになる
      */
     public function test_tag_name_required_when_tag_create(): void
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $tag = [
             'name' => '',
@@ -47,7 +47,7 @@ class TagValidationTest extends TestCase
      */
     public function test_tag_name_max_50_valid(): void
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $tag = [
             'name' => str_repeat('あ', 50),
@@ -66,7 +66,7 @@ class TagValidationTest extends TestCase
      */
     public function test_refuse_tag_name_number_of_character_51()
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $tag = [
             'name' => str_repeat('あ', 51),
@@ -96,7 +96,7 @@ class TagValidationTest extends TestCase
      */
     public function test_should_tag_name_unique(): void
     {
-        $request = new StoreTagRequest();
+        $request = new StoreTagRequest;
 
         $tag = Tag::factory()->create([
             'name' => 'テスト',

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\IndexQueryRequest;
 use App\Models\Category;
-use App\Models\Tag;
 use App\Models\Contact;
-
+use App\Models\Tag;
 
 class AdminController extends Controller
 {

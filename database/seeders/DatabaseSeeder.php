@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Contact;
-use App\Models\Tag;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 

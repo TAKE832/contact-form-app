@@ -45,7 +45,7 @@ class AdminControllerCrudTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $category = category::factory()->create();
+        $category = Category::factory()->create();
 
         $contacts = Contact::factory()->count(20)->create([
             'category_id' => $category->id,
