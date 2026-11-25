@@ -19,3 +19,4 @@ Route::get('/', [ContactController::class, 'index']);
 Route::post('contacts/confirm', [ContactController::class, 'confirm'])->name('contacts.confirm');
 Route::post('/contacts', [ContactController::class, 'store'])->name('contacts.store');
 Route::get('thanks', [ContactController::class, 'thanks'])->name('thanks');
+Route::get('/contacts/export', [ContactController::class, 'export'])->name('contact.export');

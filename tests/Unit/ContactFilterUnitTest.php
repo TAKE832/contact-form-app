@@ -16,7 +16,7 @@ class ContactFilterUnitTest extends TestCase
      */
     public function test_validation_works_with_keyword_filter(): void
     {
-        $request = new IndexQueryRequest();
+        $request = new IndexQueryRequest;
 
         $this->assertEquals(
             'nullable|string|max:255',
@@ -29,7 +29,7 @@ class ContactFilterUnitTest extends TestCase
      */
     public function test_validation_works_with_gender_filter(): void
     {
-        $request = new IndexQueryRequest();
+        $request = new IndexQueryRequest;
 
         $this->assertEquals(
             'nullable|integer|in:0,1,2,3',
@@ -42,7 +42,7 @@ class ContactFilterUnitTest extends TestCase
      */
     public function test_refusal_invalid_gender_value(): void
     {
-        $request = new IndexQueryRequest();
+        $request = new IndexQueryRequest;
 
         $data = [
             'gender' => 999,
@@ -66,7 +66,7 @@ class ContactFilterUnitTest extends TestCase
      */
     public function test_validation_works_with_category_filter(): void
     {
-        $request = new IndexQueryRequest();
+        $request = new IndexQueryRequest;
 
         $this->assertEquals(
             'nullable|integer|exists:categories,id',
@@ -74,12 +74,12 @@ class ContactFilterUnitTest extends TestCase
         );
     }
 
-    /** 
+    /**
      * 日付フィルタにバリデーションが適用されている
      */
     public function test_validation_works_with_date_filter(): void
     {
-        $request = new IndexQueryRequest();
+        $request = new IndexQueryRequest;
 
         $this->assertEquals(
             'nullable|date',

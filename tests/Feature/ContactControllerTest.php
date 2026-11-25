@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Http\Requests\StoreContactRequest;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Tag;
@@ -313,7 +312,6 @@ class ContactControllerTest extends TestCase
     public function test_return_validation_error_if_submitted_invalid_data_in_route_contacts_confirm(): void
     {
         $category = Category::factory()->create();
-
 
         $data = [
             'first_name' => '',

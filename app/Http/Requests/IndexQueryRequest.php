@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class IndexQueryRequest extends FormRequest
@@ -17,7 +18,7 @@ class IndexQueryRequest extends FormRequest
     /**
      * バリデーションルール
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
@@ -34,7 +35,7 @@ class IndexQueryRequest extends FormRequest
         return [
             'keyword.max' => 'キーワードは255文字以内で入力してください。',
             'gender.in' => '性別は0~3の値を入力してください。',
-            'category_id.integer' => '入力の形式が不正です。',
+            'category_id.integer' => '性別の形式が不正です。',
             'category_id.exists' => '選択されたカテゴリーは存在しません。',
             'date.date' => '日付形式で入力してください。',
         ];
